@@ -14,3 +14,19 @@ export const Products = () => {
     return html
 }
 
+document.addEventListener("click",(clickEvent) => {
+
+    const itemClicked = clickEvent.target
+
+    if (itemClicked.id.startsWith("product")) {
+
+        const [,productId] = itemClicked.id.split("--")
+
+        for (const product of products) {
+            if (product.id === parseInt(productId)) {
+                window.alert(`A ${product.name} costs $${product.price}.`)
+            }
+        }
+    }
+
+})
